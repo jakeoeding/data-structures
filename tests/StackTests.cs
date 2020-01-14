@@ -24,7 +24,7 @@ namespace DataStructuresTests
         #region Push tests
 
         [Test]
-        public void CountShouldIncreaseByOneWhenPushCalled()
+        public void PushShouldIncreaseCountByOne()
         {
             int initialCount = IntStack.Count;
             IntStack.Push(1);
@@ -102,7 +102,7 @@ namespace DataStructuresTests
         #region ToArray tests
 
         [Test]
-        public void ToArrayDoesntChangeCount()
+        public void ToArrayShouldNotChangeCount()
         {
             IntStack.Push(1);
             IntStack.Push(2);
@@ -111,7 +111,7 @@ namespace DataStructuresTests
         }
 
         [Test]
-        public void ToArrayReturnsStackInPopOrder()
+        public void ToArrayShouldReturnStackInPopOrder()
         {
             IntStack.Push(1);
             IntStack.Push(2);
@@ -119,7 +119,7 @@ namespace DataStructuresTests
         }
 
         [Test]
-        public void ToArrayReturnsEmptyArrayWhenEmpty()
+        public void ToArrayShouldReturnEmptyArrayWhenEmpty()
         {
             Assert.AreEqual(IntStack.ToArray(), new int[] {});
         }
@@ -129,21 +129,21 @@ namespace DataStructuresTests
         #region Contains tests
 
         [Test]
-        public void ContainsReturnsTrueWhenStackContainsValue()
+        public void ContainsShouldReturnTrueWhenStackContainsValue()
         {
             IntStack.Push(5);
             Assert.IsTrue(IntStack.Contains(5));
         }
 
         [Test]
-        public void ContainsReturnsFalseWhenStackDoesntContainValue()
+        public void ContainsShouldReturnFalseWhenStackDoesntContainValue()
         {
             IntStack.Push(0);
             Assert.IsFalse(IntStack.Contains(5));
         }
 
         [Test]
-        public void ContainsReturnsFalseWhenCountIsZero()
+        public void ContainsShouldReturnFalseWhenCountIsZero()
         {
             Assert.IsFalse(IntStack.Contains(5));
         }
