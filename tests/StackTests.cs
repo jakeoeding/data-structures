@@ -28,8 +28,7 @@ namespace DataStructuresTests
         {
             int initialCount = IntStack.Count;
             IntStack.Push(1);
-            int currentCount = IntStack.Count;
-            Assert.AreEqual(initialCount + 1, currentCount);
+            Assert.AreEqual(initialCount + 1, IntStack.Count);
         }
 
         #endregion
@@ -93,6 +92,10 @@ namespace DataStructuresTests
         [Test]
         public void ClearShouldResetCountToZero()
         {
+            for (int i = 1; i < 4; i++)
+            {
+                IntStack.Push(i);
+            }
             IntStack.Clear();
             Assert.AreEqual(IntStack.Count, 0);
         }
