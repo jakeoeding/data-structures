@@ -11,14 +11,8 @@ namespace DataStructures
         public const int DefaultInitialCapacity = 20;
         public const int DefaultGrowthFactor = 2;
 
-        public Queue()
-        {
-            _head = 0;
-            _tail = 0;
-            _array = new T[DefaultInitialCapacity];
-            Count = 0;
-        }
-
+        public Queue() : this(DefaultInitialCapacity) { }
+         
         public Queue(int initialCapacity)
         {
             _head = 0;

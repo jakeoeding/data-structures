@@ -11,12 +11,8 @@ namespace DataStructures
 
         #region public interface
 
-        public Stack()
-        {
-            _array = new T[DefaultInitialCapacity];
-            Count = 0;
-        }
-
+        public Stack() : this(DefaultInitialCapacity) { }
+         
         public Stack(int initialCapacity)
         {
             _array = new T[initialCapacity];
