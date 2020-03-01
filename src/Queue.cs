@@ -65,14 +65,38 @@ namespace DataStructures
             return Count > 0 && Array.IndexOf(_array, item) > -1;
         }
 
+        // Returns an array of items from the queue in the order they would be dequeued
         public T[] ToArray()
         {
-            throw new NotImplementedException();
+            T[] arrayCopy = new T[Count];
+            if (Count == 0)
+            {
+                return arrayCopy;
+            }
+            else if (_head < _tail)
+            {
+                // Straightforward copy
+                Array.Copy(_array, _head, arrayCopy, 0, Count);
+            }
+            else
+            {
+                // Fragmented copy
+                int countAfterSplit = _array.Length - _head;
+                Array.Copy(_array, _head, arrayCopy, 0, countAfterSplit);
+                Array.Copy(_array, 0, arrayCopy, countAfterSplit, Count - countAfterSplit);
+                return arrayCopy;
+            }
+            return arrayCopy;
         }
 
         private void Resize()
         {
-            throw new NotImplementedException();
+            T[] arrayCopy = this.ToArray();
+            T[] newArray = new T[_array.Length * DefaultGrowthFactor];
+            Array.Copy(arrayCopy, newArray, Count);
+            _array = newArray;
+            _head = 0;
+            _tail = Count;
         }
 
         private void AdvancePosition(ref int position)
