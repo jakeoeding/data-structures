@@ -125,5 +125,65 @@ namespace DataStructuresTests
         }
 
         #endregion
+
+        #region ToArray tests
+        [Test]
+        public void ToArrayShouldReturnEmptyWhenQueueEmpty()
+        {
+            Assert.AreEqual(IntQueue.ToArray(), new int[0]);
+        }
+
+        [Test]
+        public void ToArrayShouldReturnCorrectOrderWhenStraightforwardCopyFromIndexZero()
+        {
+            int[] expectedOutput = new int[8];
+            for (int i = 1; i <= 8; i++)
+            {
+                IntQueue.Enqueue(i);
+                expectedOutput[i - 1] = i;
+            }
+            int[] testArray = IntQueue.ToArray();
+            Assert.AreEqual(expectedOutput, testArray);
+        }
+
+        [Test]
+        public void ToArrayShouldReturnCorrectOrderWhenStraightforwardCopyFromNonZeroIndex()
+        {
+            // Advance head from index 0
+            for (int i = 0; i < 2; i++)
+            {
+                IntQueue.Enqueue(0);
+                IntQueue.Dequeue();
+            }
+
+            int[] expectedOutput = new int[8];
+            for (int i = 1; i <= 8; i++)
+            {
+                IntQueue.Enqueue(i);
+                expectedOutput[i - 1] = i;
+            }
+            int[] testArray = IntQueue.ToArray();
+            Assert.AreEqual(expectedOutput, testArray);
+        }
+
+        [Test]
+        public void ToArrayShouldReturnCorrectOrderWhenFragmentedCopy()
+        {
+            int capacity = Queue<int>.DefaultInitialCapacity;
+
+            // Set up so tail will wrap around to beginning
+            IntQueue.Enqueue(1);
+            IntQueue.Dequeue();
+
+            int[] expectedOutput = new int[capacity];
+            for (int i = 1; i <= capacity; i++)
+            {
+                IntQueue.Enqueue(i);
+                expectedOutput[i - 1] = i;
+            }
+            int[] testArray = IntQueue.ToArray();
+            Assert.AreEqual(expectedOutput, testArray);
+        }
+        #endregion
     }
 }
