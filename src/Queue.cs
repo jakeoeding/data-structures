@@ -2,23 +2,19 @@
 
 namespace DataStructures
 {
-    public class Queue<T>
+    public class Queue<T> : ArrayBasedCollection<T>
     {
         private int _head;
         private int _tail;
-        private T[] _array;
-        public int Count { get; private set; }
-        public const int DefaultInitialCapacity = 20;
-        public const int DefaultGrowthFactor = 2;
 
-        public Queue() : this(DefaultInitialCapacity) { }
+        #region public interface
+
+        public Queue() : base() { }
          
-        public Queue(int initialCapacity)
+        public Queue(int initialCapacity) : base(initialCapacity)
         {
             _head = 0;
             _tail = 0;
-            _array = new T[initialCapacity];
-            Count = 0;
         }
 
         public void Enqueue(T item)
@@ -54,19 +50,15 @@ namespace DataStructures
             return frontOfQueue;
         }
 
-        public void Clear()
+        public override void Clear()
         {
-            Array.Clear(_array, 0, _array.Length);
-            Count = 0;
-        }
-
-        public bool Contains(T item)
-        {
-            return Count > 0 && Array.IndexOf(_array, item) > -1;
+            base.Clear();
+            _head = 0;
+            _tail = 0;
         }
 
         // Returns an array of items from the queue in the order they would be dequeued
-        public T[] ToArray()
+        public override T[] ToArray()
         {
             T[] arrayCopy = new T[Count];
             if (Count == 0)
@@ -89,7 +81,11 @@ namespace DataStructures
             return arrayCopy;
         }
 
-        private void Resize()
+        #endregion
+
+        #region internal helpers
+
+        protected override void Resize()
         {
             T[] arrayCopy = this.ToArray();
             T[] newArray = new T[_array.Length * DefaultGrowthFactor];
@@ -108,5 +104,7 @@ namespace DataStructures
         {
             throw new InvalidOperationException("Queue is empty. This operation requires at least one item to be present in Queue.");
         }
+
+        #endregion
     }
 }

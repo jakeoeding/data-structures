@@ -2,22 +2,13 @@
 
 namespace DataStructures
 {
-    public class Stack<T>
+    public class Stack<T> : ArrayBasedCollection<T>
     {
-        private T[] _array;
-        public int Count { get; private set; }
-        public const int DefaultInitialCapacity = 5;
-        public const int DefaultGrowthFactor = 2;
-
         #region public interface
 
-        public Stack() : this(DefaultInitialCapacity) { }
+        public Stack() : base() { }
          
-        public Stack(int initialCapacity)
-        {
-            _array = new T[initialCapacity];
-            Count = 0;
-        }
+        public Stack(int initialCapacity) : base(initialCapacity) { }
 
         public void Push(T item)
         {
@@ -50,14 +41,8 @@ namespace DataStructures
             return topOfStack;
         }
 
-        public void Clear()
-        {
-            Array.Clear(_array, 0, Count);
-            Count = 0;
-        }
-
         // Returns an array of items from the stack in the order they would be popped off
-        public T[] ToArray()
+        public override T[] ToArray()
         {
             T[] arrayCopy = new T[Count];
             Array.Copy(_array, 0, arrayCopy, 0, Count);
@@ -65,16 +50,11 @@ namespace DataStructures
             return arrayCopy;
         }
 
-        public bool Contains(T item)
-        {
-            return Count > 0 && Array.IndexOf(_array, item) > -1;
-        }
-
         #endregion
 
-        #region private helpers
+        #region internal helpers
 
-        private void Resize()
+        protected override void Resize()
         {
             Array.Resize<T>(ref _array, _array.Length * DefaultGrowthFactor);
         }
