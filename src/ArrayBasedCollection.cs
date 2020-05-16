@@ -19,7 +19,7 @@ namespace DataStructures
 
         public virtual void Clear()
         {
-            Array.Clear(_array, 0, Count);
+            Array.Clear(_array, 0, _array.Length);
             Count = 0;
         }
 
@@ -30,6 +30,9 @@ namespace DataStructures
 
         public abstract T[] ToArray();
 
-        protected abstract void Resize();
+        protected virtual void Resize()
+        {
+            Array.Resize<T>(ref _array, _array.Length * DefaultGrowthFactor);
+        }
     }
 }

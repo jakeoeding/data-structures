@@ -54,11 +54,6 @@ namespace DataStructures
 
         #region internal helpers
 
-        protected override void Resize()
-        {
-            Array.Resize<T>(ref _array, _array.Length * DefaultGrowthFactor);
-        }
-
         private void ThrowWhenEmpty()
         {
             throw new InvalidOperationException("Stack is empty. This operation requires at least one item to be present in Stack.");
