@@ -28,7 +28,12 @@ namespace DataStructures
             return Count > 0 && Array.IndexOf(_array, item) > -1;
         }
 
-        public abstract T[] ToArray();
+        public virtual T[] ToArray()
+        {
+            T[] arrayCopy = new T[Count];
+            Array.Copy(_array, 0, arrayCopy, 0, Count);
+            return arrayCopy;
+        }
 
         protected virtual void Resize()
         {

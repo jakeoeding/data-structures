@@ -44,8 +44,7 @@ namespace DataStructures
         // Returns an array of items from the stack in the order they would be popped off
         public override T[] ToArray()
         {
-            T[] arrayCopy = new T[Count];
-            Array.Copy(_array, 0, arrayCopy, 0, Count);
+            T[] arrayCopy = base.ToArray();
             Array.Reverse(arrayCopy);
             return arrayCopy;
         }
