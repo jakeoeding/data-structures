@@ -21,6 +21,10 @@ namespace DataStructures
             {
                 ValidateIndex(index);
                 _array[index] = value;
+                if (index == Count)
+                {
+                    Count++;
+                }
             }
         }
 
@@ -47,6 +51,7 @@ namespace DataStructures
                 Resize();
             }
             Array.Copy(_array, index, _array, index + 1, Count - index);
+            _array[index] = item;
             Count++;
         }
 
@@ -83,7 +88,7 @@ namespace DataStructures
 
         private void ValidateIndex(int index)
         {
-            if (index < 0 || index >= Count)
+            if (index < 0 || index > Count)
             {
                 throw new IndexOutOfRangeException();
             }
