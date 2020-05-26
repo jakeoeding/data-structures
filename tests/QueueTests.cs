@@ -46,7 +46,7 @@ namespace DataStructuresTests
         {
             IntQueue.Enqueue(1);
             IntQueue.Enqueue(2);
-            Assert.AreEqual(IntQueue.Peek(), 1);
+            Assert.AreEqual(1, IntQueue.Peek());
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace DataStructuresTests
             IntQueue.Enqueue(1);
             IntQueue.Enqueue(2);
             IntQueue.Peek();
-            Assert.AreEqual(IntQueue.Count, 2);
+            Assert.AreEqual(2, IntQueue.Count);
         }
 
         #endregion
@@ -73,7 +73,7 @@ namespace DataStructuresTests
         {
             IntQueue.Enqueue(1);
             IntQueue.Enqueue(2);
-            Assert.AreEqual(IntQueue.Dequeue(), 1);
+            Assert.AreEqual(1, IntQueue.Dequeue());
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace DataStructuresTests
             IntQueue.Enqueue(1);
             IntQueue.Enqueue(2);
             IntQueue.Dequeue();
-            Assert.AreEqual(IntQueue.Count, 1);
+            Assert.AreEqual(1, IntQueue.Count);
         }
 
         #endregion
@@ -97,7 +97,7 @@ namespace DataStructuresTests
                 IntQueue.Enqueue(i);
             }
             IntQueue.Clear();
-            Assert.AreEqual(IntQueue.Count, 0);
+            Assert.AreEqual(0, IntQueue.Count);
         }
 
         #endregion
@@ -130,7 +130,7 @@ namespace DataStructuresTests
         [Test]
         public void ToArrayShouldReturnEmptyWhenQueueEmpty()
         {
-            Assert.AreEqual(IntQueue.ToArray(), new int[0]);
+            Assert.AreEqual(new int[0], IntQueue.ToArray());
         }
 
         [Test]

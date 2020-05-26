@@ -46,7 +46,7 @@ namespace DataStructuresTests
         {
             IntStack.Push(1);
             IntStack.Push(2);
-            Assert.AreEqual(IntStack.Peek(), 2);
+            Assert.AreEqual(2, IntStack.Peek());
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace DataStructuresTests
             IntStack.Push(1);
             IntStack.Push(2);
             IntStack.Peek();
-            Assert.AreEqual(IntStack.Count, 2);
+            Assert.AreEqual(2, IntStack.Count);
         }
 
         #endregion
@@ -73,7 +73,7 @@ namespace DataStructuresTests
         {
             IntStack.Push(1);
             IntStack.Push(2);
-            Assert.AreEqual(IntStack.Pop(), 2);
+            Assert.AreEqual(2, IntStack.Pop());
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace DataStructuresTests
             IntStack.Push(1);
             IntStack.Push(2);
             IntStack.Pop();
-            Assert.AreEqual(IntStack.Count, 1);
+            Assert.AreEqual(1, IntStack.Count);
         }
 
         #endregion
@@ -97,7 +97,7 @@ namespace DataStructuresTests
                 IntStack.Push(i);
             }
             IntStack.Clear();
-            Assert.AreEqual(IntStack.Count, 0);
+            Assert.AreEqual(0, IntStack.Count);
         }
 
         #endregion
@@ -110,7 +110,7 @@ namespace DataStructuresTests
             IntStack.Push(1);
             IntStack.Push(2);
             IntStack.ToArray();
-            Assert.AreEqual(IntStack.Count, 2);
+            Assert.AreEqual(2, IntStack.Count);
         }
 
         [Test]
@@ -118,13 +118,13 @@ namespace DataStructuresTests
         {
             IntStack.Push(1);
             IntStack.Push(2);
-            Assert.AreEqual(IntStack.ToArray(), new int[] { 2, 1 });
+            Assert.AreEqual(new int[] { 2, 1 }, IntStack.ToArray());
         }
 
         [Test]
         public void ToArrayShouldReturnEmptyArrayWhenEmpty()
         {
-            Assert.AreEqual(IntStack.ToArray(), new int[] {});
+            Assert.AreEqual(new int[] { }, IntStack.ToArray());
         }
 
         #endregion
