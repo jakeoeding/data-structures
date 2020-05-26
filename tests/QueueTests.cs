@@ -100,6 +100,20 @@ namespace DataStructuresTests
             Assert.AreEqual(0, IntQueue.Count);
         }
 
+        [Test]
+        public void ClearShouldRemoveAllPreviousValues()
+        {
+            for (int i = 1; i < 4; i++)
+            {
+                IntQueue.Enqueue(i);
+            }
+            IntQueue.Clear();
+            for (int i = 1; i < 4; i++)
+            {
+                Assert.IsFalse(IntQueue.Contains(i), $"Queue contains the value {i} after call to Clear");
+            }
+        }
+
         #endregion
 
         #region Contains tests

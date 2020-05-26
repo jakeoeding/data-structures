@@ -100,6 +100,20 @@ namespace DataStructuresTests
             Assert.AreEqual(0, IntStack.Count);
         }
 
+        [Test]
+        public void ClearShouldRemoveAllPreviousValues()
+        {
+            for (int i = 1; i < 4; i++)
+            {
+                IntStack.Push(i);
+            }
+            IntStack.Clear();
+            for (int i = 1; i < 4; i++)
+            {
+                Assert.IsFalse(IntStack.Contains(i), $"Stack contains value {i} after call to Clear");
+            }
+        }
+
         #endregion
 
         #region ToArray tests
