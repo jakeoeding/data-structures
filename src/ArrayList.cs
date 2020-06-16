@@ -21,7 +21,7 @@ namespace DataStructures
             {
                 ValidateIndex(index);
                 _array[index] = value;
-                if (index == Count)
+                if (index == Count)  // Only increase count if we aren't overriding a previous index
                 {
                     Count++;
                 }
