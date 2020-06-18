@@ -104,7 +104,7 @@ namespace DataStructuresTests
         [Test]
         public void AddByValueShouldAddToEndOfList()
         {
-            String[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
+            string[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
             foreach (string str in testStrings)
             {
                 StringList.Add(str);
@@ -118,7 +118,7 @@ namespace DataStructuresTests
         [Test]
         public void AddByValueShouldIncreaseCount()
         {
-            String[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
+            string[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
             foreach (string str in testStrings)
             {
                 StringList.Add(str);
@@ -148,7 +148,7 @@ namespace DataStructuresTests
         [Test]
         public void AddByIndexShouldIncreaseCount()
         {
-            String[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
+            string[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
             foreach (string str in testStrings)
             {
                 StringList.Add(str, 0);
@@ -175,7 +175,7 @@ namespace DataStructuresTests
         [Test]
         public void RemoveByIndexShouldReturnValueAtValidIndex()
         {
-            String[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
+            string[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
             foreach (string str in testStrings)
             {
                 StringList.Add(str);
@@ -186,7 +186,7 @@ namespace DataStructuresTests
         [Test]
         public void RemoveByIndexShouldRemoveValueAtValidIndex()
         {
-            String[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
+            string[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
             foreach (string str in testStrings)
             {
                 StringList.Add(str);
@@ -198,7 +198,7 @@ namespace DataStructuresTests
         [Test]
         public void RemoveByIndexShouldDecreaseCount()
         {
-            String[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
+            string[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
             foreach (string str in testStrings)
             {
                 StringList.Add(str);
@@ -228,7 +228,7 @@ namespace DataStructuresTests
         [Test]
         public void ClearShouldResetCountToZero()
         {
-            String[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
+            string[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
             foreach (string str in testStrings)
             {
                 StringList.Add(str);
@@ -240,7 +240,7 @@ namespace DataStructuresTests
         [Test]
         public void ClearShouldRemoveAllPreviousValues()
         {
-            String[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
+            string[] testStrings = { "1", "giraffe", "flames", "octopus", "syrup" };
             foreach (string str in testStrings)
             {
                 StringList.Add(str);
