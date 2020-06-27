@@ -1,7 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
 using DataStructures;
-using NUnit.Framework.Internal;
 
 namespace DataStructuresTests
 {
@@ -104,6 +103,10 @@ namespace DataStructuresTests
         public void RemoveTopShouldRemoveItemsInSortedOrder()
         {
             int[] testInts = { 3, 2, 1, 0, -1, -2, -3 };
+            foreach (int testInt in testInts)
+            {
+                IntMinHeap.Add(testInt);
+            }
             for (int i = testInts.Length - 1; i < -1; i--)
             {
                 Assert.AreEqual(testInts[i], IntMinHeap.RemoveTop());
