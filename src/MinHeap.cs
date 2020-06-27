@@ -49,9 +49,9 @@ namespace DataStructures
 
         #region internal helpers
 
-        protected bool Precedes(int x, int y)
+        protected virtual bool Precedes(int x, int y)
         {
-            return _array[x].CompareTo(y) < 0;
+            return _array[x].CompareTo(_array[y]) < 0;
         }
 
         private void BubbleUp(int index)
